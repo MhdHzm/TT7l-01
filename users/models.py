@@ -12,8 +12,8 @@ class Event(models.Model):
       return self.title
 
 class Registration (models.Model):
-  user = models.ForeignKey(Event, on_delete=models.CASCADE)
-  event = models.ForeignKey(Online, on_delete=models.CASCADE)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  event = models.ForeignKey(Event, on_delete=models.CASCADE)
   registration_date = models.DateTimeField(auto_now_add=True)
 
   def __str__(self):

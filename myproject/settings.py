@@ -1,10 +1,10 @@
 from pathlib import Path
-import os 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'your-secret-key'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['event.com']
 
 DEBUG = True
 
@@ -20,19 +20,14 @@ INSTALLED_APPS = [
     'django.contrib.sites', 
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
     'users',
 ]
 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',  
 ]
 
@@ -81,7 +76,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Malaysia'
 
 USE_I18N = True
 

@@ -3,5 +3,4 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def home(request):
-    return render(request, 'welcome.html')
-    return HttpResponse ("Welcome to Online Event Ticket Booking System!")
+    return HttpResponse ("Welcome to Online Event Ticket Booking System!") 

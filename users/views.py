@@ -1,4 +1,3 @@
-from django.shortcuts import render
-
 def home(request):
-    return render(request, 'home.html')
+    message = "Welcome to Online Event Ticket Booking System!"
+    return render(request, 'welcome.html',{'message': message})

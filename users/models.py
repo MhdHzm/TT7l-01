@@ -9,7 +9,7 @@ class Event(models.Model):
   location = models.CharField(max_length=200)
 
   def __str__(self):
-      return self.title
+      return f"{self.event_type} at {self.venue} on {self.date}"
 
 class Registration (models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)

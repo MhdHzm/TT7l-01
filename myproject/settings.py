@@ -1,9 +1,8 @@
-from pathlib import Path
 import os
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = 'your-secret-key'
+SECRET_KEY = 'ayjztuafvqial_-tdx6)9qx46t!yb#nympzzic422$e)=+b!e1'
 DEBUG = True
 ALLOWED_HOSTS = ['event.com']
 
@@ -12,28 +11,29 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
+
+    'project',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites', 
-    'allauth',
-    'allauth.account',
-    'users',
 ]
 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'allauth.account.middleware.AccountMiddleware',  
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware', 
 ]
 
 
-ROOT_URLCONF = 'myproject.urls'
+ROOT_URLCONF = 'myevent.urls'
 
 TEMPLATES = [
     {
@@ -46,19 +46,17 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.contrib.messages.middleware.MessageMiddleware' ,
-                'django.contrib.sessions.middleware.SessionMiddleware',
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'myproject.wsgi.application'
+WSGI_APPLICATION = 'myevent.wsgi.application'
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -79,7 +77,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Malaysia'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 

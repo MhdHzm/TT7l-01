@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
 def home_screen_view(request):
-    print(request.headers)
+    
+    context = {}
+    context['some_string'] = "this is some string that I'm passing to the view"
+    
     return render(request, "project/home.html", {})

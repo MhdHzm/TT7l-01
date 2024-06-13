@@ -1,9 +1,5 @@
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
-@login_required
-def profile(request):
-    return render(request, 'profile.html')
-
-def settings(request):
-    return render(request, 'settings.html') 
+def home_screen_view(request):
+    print(request.headers)
+    return render(request, "base.html", {})

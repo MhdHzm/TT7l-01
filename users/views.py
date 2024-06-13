@@ -11,11 +11,13 @@ def home_screen_view(request):
     #     'some_number' : 124125,
     # }
 
-    list_of_values = []
-    list_of_values.append("first entry")
-    list_of_values.append("second entry")
-    list_of_values.append("third entry")
-    list_of_values.append("fourth entry")
-    context['list_of_values'] = list_of_values
-    
-    return render(request, "project/home.html", {})
+    # list_of_values = []
+    # list_of_values.append("first entry")
+    # list_of_values.append("second entry")
+    # list_of_values.append("third entry")
+    # list_of_values.append("fourth entry")
+    # context['list_of_values'] = list_of_values
+
+    questions = Question.objects.all ()
+    context['questions'] = questions
+    return render(request, "project/home.html", context)

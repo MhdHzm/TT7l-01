@@ -13,3 +13,9 @@ def registration_view(request):
             account = authenticate(email=email, password=raw_password)
             login(request,account)
             return redirect('home')
+           else:
+            context['registration_form'] = form
+    else: 
+        form = RegistrationForm()
+        context['registration_form'] = form
+    return render(request, 'account/register.html',context)            
